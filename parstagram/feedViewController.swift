@@ -53,7 +53,9 @@ class feedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let urlString = imageFile.url!
         let url = URL(string: urlString)!
         
-        cell.photoView.af_setImage(withURL: url)
+        //cell.photoView.af_setImage(withURL: url)
+        let data = try! Data(contentsOf: url)
+        cell.photoView.image = UIImage(data: data)
         
         return cell
     }
